@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload or Select an Image</h1>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="submit" value="Upload">
+        </form>
+        <h2>Or select an existing image:</h2>
+        <ul>
+            {% for image in images %}
+                <li><a href="{{ url_for('analyze', filename=image) }}">{{ image }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

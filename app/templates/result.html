@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Analysis Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Image Analysis Result</h1>
+        <div class="image-container">
+            <h2>Original Image:</h2>
+            <img src="{{ url_for('static', filename=original_image.split('static/')[1]) }}" alt="Original Image">
+            <h2>Processed Image:</h2>
+            <img src="{{ url_for('static', filename=processed_image.split('static/')[1]) }}" alt="Processed Image">
+        </div>
+        <div class="results-table">
+            <h2>Calculation Results</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mean of the blurred image</td>
+                        <td>{{ calculation }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <a href="{{ url_for('index') }}">Go back</a>
+    </div>
+</body>
+</html>
