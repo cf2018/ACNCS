@@ -119,14 +119,14 @@ def process_image(image_path):
                 np.sqrt((x_fit[i + 1] - x_fit[i]) ** 2 + (y_fit[i + 1] - y_fit[i]) ** 2)
                 for i in range(len(x_fit) - 1)
             )
-            blue_red_ratio = (blue_line_length / red_curve_length) * 100
+            green_red_ratio = (blue_line_length / green_line_length) * 100
 
             # === Draw Text on the Right of the Blue Line ===
             text_x = int(max(intersection_x, x_p) + 20)  # Place text slightly to the right
             text_y = int((intersection_y + y_p) / 2)  # Centered along the blue line
 
             text1 = f"{green_percentage:.1f}% along green line"
-            text2 = f"Blue/Red Length: {blue_red_ratio:.1f}%"
+            text2 = f"Blue/Green Length: {green_red_ratio:.1f}%"
 
             cv2.putText(img, text1, (text_x, text_y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
             cv2.putText(img, text2, (text_x, text_y + 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
